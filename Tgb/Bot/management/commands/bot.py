@@ -1,145 +1,13 @@
 from django.core.management.base import BaseCommand
 from telegram import Bot
-from telegram import Update
-from telegram.ext import CallbackContext, Filters, MessageHandler, Updater, CommandHandler
+from telegram.ext import CommandHandler, Updater
 from telegram.utils.request import Request
 from django.conf import settings
-from admin_app.models import Profile, Massage
-
-
-def log_errors(f):
-    def inner(*args,**kwargs):
-        try:
-            return f(*args,**kwargs)
-        except Exception as e:
-            error_message = f"Произошла ошибка:{e}"
-            print(error_message)
-            raise e
-    return inner
-
-@log_errors
-def start(update: Update, context: CallbackContext):
-    chat_id = update.message.chat_id
-    p, _ = Profile.objects.get_or_create(
-        id=chat_id,
-        defaults={
-            "name": update.message.from_user.username,
-        }
-    )
-    try:
-        mes1 = Massage.objects.all().first()
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
-
-@log_errors
-def mes2(update: Update, context: CallbackContext):
-    try:
-        mes1 = Massage.objects.get(id=2)
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
-
-
-@log_errors
-def mes3(update: Update, context: CallbackContext):
-    try:
-        mes1 = Massage.objects.get(id=3)
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
-
-
-@log_errors
-def mes4(update: Update, context: CallbackContext):
-    try:
-        mes1 = Massage.objects.get(id=4)
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
-
-
-@log_errors
-def mes5(update: Update, context: CallbackContext):
-    try:
-        mes1 = Massage.objects.get(id=5)
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
-
-
-@log_errors
-def mes6(update: Update, context: CallbackContext):
-    try:
-        mes1 = Massage.objects.get(id=6)
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
-
-
-@log_errors
-def mes7(update: Update, context: CallbackContext):
-    try:
-        mes1 = Massage.objects.get(id=7)
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
-
-
-@log_errors
-def mes8(update: Update, context: CallbackContext):
-    try:
-        mes1 = Massage.objects.all().first()
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
-
-@log_errors
-def mes8(update: Update, context: CallbackContext):
-    try:
-        mes1 = Massage.objects.get(id=8)
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
-
-@log_errors
-def mes9(update: Update, context: CallbackContext):
-    try:
-        mes1 = Massage.objects.get(id=9)
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
-
-
-@log_errors
-def mes10(update: Update, context: CallbackContext):
-    try:
-        mes1 = Massage.objects.get(id=10)
-        message1 = f"{mes1}"
-        update.message.reply_text(message1)
-
-    except Exception:
-        print("")
+from .voronka1 import *
+from .voronka4 import *
+from .voronka2 import *
+from .voronka3 import *
+from .voronka5 import *
 
 
 class Command(BaseCommand):
@@ -159,7 +27,7 @@ class Command(BaseCommand):
             bot=bot,
             use_context=True,
         )
-
+        #voronka1
         message_handler = CommandHandler("start", start)
         update.dispatcher.add_handler(message_handler)
         message_handler2 = CommandHandler("go", mes2)
@@ -180,6 +48,87 @@ class Command(BaseCommand):
         update.dispatcher.add_handler(message_handler2)
         message_handler2 = CommandHandler("mes10", mes10)
         update.dispatcher.add_handler(message_handler2)
+
+        # voronka2
+        message_handler2 = CommandHandler("Vor2_mes2", Vor2_mes2)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor2_mes3", Vor2_mes3)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor2_mes4", Vor2_mes4)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor2_mes5", Vor2_mes5)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor2_mes6", Vor2_mes6)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor2_mes7", Vor2_mes7)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor2_mes8", Vor2_mes8)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor2_mes9", Vor2_mes9)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor2_mes10", Vor2_mes10)
+        update.dispatcher.add_handler(message_handler2)
+
+        # voronka3
+        message_handler2 = CommandHandler("Vor3_mes2", Vor3_mes2)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor3_mes3", Vor3_mes3)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor3_mes4", Vor3_mes4)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor3_mes5", Vor3_mes5)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor3_mes6", Vor3_mes6)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor3_mes7", Vor3_mes7)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor3_mes8", Vor3_mes8)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor3_mes9", Vor3_mes9)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor3_mes210", Vor3_mes10)
+        update.dispatcher.add_handler(message_handler2)
+
+        # voronka4
+        message_handler2 = CommandHandler("Vor4_mes2", Vor4_mes2)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor4_mes3", Vor4_mes3)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor4_mes4", Vor4_mes4)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor4_mes5", Vor4_mes5)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor4_mes6", Vor4_mes6)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor4_mes7", Vor4_mes7)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor4_mes8", Vor4_mes8)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor4_mes9", Vor4_mes9)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor4_mes10", Vor4_mes10)
+        update.dispatcher.add_handler(message_handler2)
+
+        # voronka5
+        message_handler2 = CommandHandler("Vor5_mes2", Vor5_mes2)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor5_mes3", Vor5_mes3)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor5_mes4", Vor5_mes4)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor5_mes5", Vor5_mes5)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor5_mes6", Vor5_mes6)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor5_mes7", Vor5_mes7)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor5_mes8", Vor5_mes8)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor5_mes9", Vor5_mes9)
+        update.dispatcher.add_handler(message_handler2)
+        message_handler2 = CommandHandler("Vor5_mes10", Vor5_mes10)
+        update.dispatcher.add_handler(message_handler2)
+
 
 
         update.start_polling()

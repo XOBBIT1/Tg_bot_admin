@@ -40,6 +40,10 @@ INSTALLED_APPS = [
     "admin_app",
     "Tgb",
     "Bot",
+    "voronk2",
+    "voronk3",
+    "voronk4",
+    "voronk5",
 ]
 
 MIDDLEWARE = [

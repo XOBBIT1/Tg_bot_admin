@@ -1,6 +1,6 @@
 from django.db import models
 
-class Profile(models.Model):
+class ProfileVor3(models.Model):
     id = models.PositiveIntegerField(verbose_name="ID пользователя", primary_key=True, unique=True)
     name = models.TextField(verbose_name="Имя пользователя", null=True, blank=False)
 
@@ -11,7 +11,7 @@ class Profile(models.Model):
         verbose_name = "Профили"
 
 
-class Massage(models.Model):
+class MassageVor3(models.Model):
     name = models.CharField(verbose_name="Название сообщения", null=False, blank=False, max_length=200, )
     massege = models.TextField(verbose_name="Сообщение", null=False, blank=False)
     image = models.ImageField(upload_to="avatars", blank=True,)
@@ -22,4 +22,4 @@ class Massage(models.Model):
 
 
     class Meta:
-        verbose_name="Voronka1"
+        verbose_name="Voronka3"
