@@ -40,10 +40,19 @@ INSTALLED_APPS = [
     "admin_app",
     "Tgb",
     "Bot",
-    "voronk2",
-    "voronk3",
-    "voronk4",
-    "voronk5",
+    "bot_2",
+    "bot_3",
+    "bot_4",
+    "bot_5",
+    "bot_6",
+    "bot_7",
+    "bot_8",
+    "bot_9",
+    "bot_10",
+
+
+
+
 ]
 
 MIDDLEWARE = [
@@ -139,3 +148,13 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TOKEN = "5307835139:AAEckIPDuuAqSzI2VlGtXjJRNZhLjVHBqcg"
+TOKEN2 = ""
+TOKEN3 = ""
+TOKEN4 = ""
+TOKEN5 = ""
+TOKEN6 = ""
+TOKEN7 = ""
+TOKEN8 = ""
+TOKEN9 = ""
+TOKEN10 = ""
+
