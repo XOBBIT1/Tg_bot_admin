@@ -1,4 +1,4 @@
-from admin_app.models import Profile, Massage
+from bot_10.models import Profile_bot10, Massage_bot10
 from telegram import Update
 
 from telegram.ext import CallbackContext
@@ -17,15 +17,16 @@ def log_errors(f):
 @log_errors
 def start(update: Update, context: CallbackContext):
     chat_id = update.message.chat_id
-    p, _ = Profile.objects.get_or_create(
+    p, _ = Profile_bot10.objects.get_or_create(
         id=chat_id,
         defaults={
-            "name": update.message.from_user.username,
+            "name": update.message.from_user.first_name,
         }
     )
     try:
-        mes1 = Massage.objects.all().first()
-        message1 = f"{mes1}"
+        mes1 = Massage_bot10.objects.all().first()
+        name = update.message.from_user.first_name
+        message1 = f"{name} {mes1}"
         update.message.reply_text(message1)
 
     except Exception:
@@ -34,7 +35,7 @@ def start(update: Update, context: CallbackContext):
 @log_errors
 def mes2(update: Update, context: CallbackContext):
     try:
-        mes1 = Massage.objects.get(id=2)
+        mes1 = Massage_bot10.objects.get(id=2)
         message1 = f"{mes1}"
         update.message.reply_text(message1)
 
@@ -45,7 +46,7 @@ def mes2(update: Update, context: CallbackContext):
 @log_errors
 def mes3(update: Update, context: CallbackContext):
     try:
-        mes1 = Massage.objects.get(id=3)
+        mes1 = Massage_bot10.objects.get(id=3)
         message1 = f"{mes1}"
         update.message.reply_text(message1)
 
@@ -56,7 +57,7 @@ def mes3(update: Update, context: CallbackContext):
 @log_errors
 def mes4(update: Update, context: CallbackContext):
     try:
-        mes1 = Massage.objects.get(id=4)
+        mes1 = Massage_bot10.objects.get(id=4)
         message1 = f"{mes1}"
         update.message.reply_text(message1)
 
@@ -67,7 +68,7 @@ def mes4(update: Update, context: CallbackContext):
 @log_errors
 def mes5(update: Update, context: CallbackContext):
     try:
-        mes1 = Massage.objects.get(id=5)
+        mes1 = Massage_bot10.objects.get(id=5)
         message1 = f"{mes1}"
         update.message.reply_text(message1)
 
@@ -78,7 +79,7 @@ def mes5(update: Update, context: CallbackContext):
 @log_errors
 def mes6(update: Update, context: CallbackContext):
     try:
-        mes1 = Massage.objects.get(id=6)
+        mes1 = Massage_bot10.objects.get(id=6)
         message1 = f"{mes1}"
         update.message.reply_text(message1)
 
@@ -89,7 +90,7 @@ def mes6(update: Update, context: CallbackContext):
 @log_errors
 def mes7(update: Update, context: CallbackContext):
     try:
-        mes1 = Massage.objects.get(id=7)
+        mes1 = Massage_bot10.objects.get(id=7)
         message1 = f"{mes1}"
         update.message.reply_text(message1)
 
@@ -100,7 +101,7 @@ def mes7(update: Update, context: CallbackContext):
 @log_errors
 def mes8(update: Update, context: CallbackContext):
     try:
-        mes1 = Massage.objects.all().first()
+        mes1 = Massage_bot10.objects.all().first()
         message1 = f"{mes1}"
         update.message.reply_text(message1)
 
@@ -110,7 +111,7 @@ def mes8(update: Update, context: CallbackContext):
 @log_errors
 def mes8(update: Update, context: CallbackContext):
     try:
-        mes1 = Massage.objects.get(id=8)
+        mes1 = Massage_bot10.objects.get(id=8)
         message1 = f"{mes1}"
         update.message.reply_text(message1)
 
@@ -120,7 +121,7 @@ def mes8(update: Update, context: CallbackContext):
 @log_errors
 def mes9(update: Update, context: CallbackContext):
     try:
-        mes1 = Massage.objects.get(id=9)
+        mes1 = Massage_bot10.objects.get(id=9)
         message1 = f"{mes1}"
         update.message.reply_text(message1)
 
@@ -131,7 +132,7 @@ def mes9(update: Update, context: CallbackContext):
 @log_errors
 def mes10(update: Update, context: CallbackContext):
     try:
-        mes1 = Massage.objects.get(id=10)
+        mes1 = Massage_bot10.objects.get(id=10)
         message1 = f"{mes1}"
         update.message.reply_text(message1)
 

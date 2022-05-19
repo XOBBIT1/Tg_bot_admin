@@ -15,6 +15,13 @@ def log_errors(f):
 
 @log_errors
 def Vor3_mes2(update: Update, context: CallbackContext):
+    chat_id = update.message.chat_id
+    p, _ = ProfileVor3.objects.get_or_create(
+        id=chat_id,
+        defaults={
+            "name": update.message.from_user.first_name,
+        }
+    )
     try:
         mes1 = MassageVor3.objects.get(id=1)
         message1 = f"{mes1}"

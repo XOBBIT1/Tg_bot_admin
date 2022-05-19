@@ -20,12 +20,13 @@ def start(update: Update, context: CallbackContext):
     p, _ = Profile.objects.get_or_create(
         id=chat_id,
         defaults={
-            "name": update.message.from_user.username,
+            "name": update.message.from_user.first_name,
         }
     )
     try:
         mes1 = Massage.objects.all().first()
-        message1 = f"{mes1}"
+        name = update.message.from_user.first_name
+        message1 = f"{name} {mes1}"
         update.message.reply_text(message1)
 
     except Exception:
